@@ -31,7 +31,7 @@
         <ul class="nav-links">
             <li><a href="#" class="active">Discover</a></li>
             <li><a href="#">Collections</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
@@ -96,19 +96,17 @@
                 <div class="item-overlay"><span>View</span></div>
             </div>
 
-            <!-- See More Tile -->
-            <div class="gallery-item see-more-card" id="see-more-btn">
-                <div class="see-more-content">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="see-more-icon">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="8" x2="12" y2="16"></line>
-                        <line x1="8" y1="12" x2="16" y2="12"></line>
-                    </svg>
-                    <span>See More</span>
-                </div>
-            </div>
+        </div>
+
+        <!-- Arrow Load More -->
+        <div class="load-more-container" id="load-more-container" style="display: none;">
+            <button id="load-more-arrow" class="btn-load-more" aria-label="Load more images">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="arrow-icon">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
         </div>
     </main>
 

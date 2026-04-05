@@ -1,11 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* --- 1. File Upload Logic (FileReader API Mock) --- */
+    /* --- 1. File Upload Logic & Pagination --- */
 
+    let visibleCount = 8;
     const uploadBtn = document.getElementById('upload-btn');
     const imageUploadInput = document.getElementById('image-upload');
     const gallery = document.getElementById('gallery');
     const dropZone = document.getElementById('drop-zone');
+    const loadMoreContainer = document.getElementById('load-more-container');
+    const loadMoreArrow = document.getElementById('load-more-arrow');
+
+    function updateGalleryVisibility() {
+        const items = gallery.querySelectorAll('.gallery-item');
+        let totalItems = items.length;
+
+        items.forEach((item, index) => {
+            if (index < visibleCount) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // Show arrow if there are more items to reveal
+        if (totalItems > visibleCount && loadMoreContainer) {
+            loadMoreContainer.style.display = 'flex';
+        } else if (loadMoreContainer) {
+            loadMoreContainer.style.display = 'none';
+        }
+    }
+
+    // Call once initially to enforce mock images layout
+    updateGalleryVisibility();
+
+    if (loadMoreArrow) {
+        loadMoreArrow.addEventListener('click', () => {
+            visibleCount += 8;
+            updateGalleryVisibility();
+        });
+    }
 
     // Trigger file selection window when our custom button is clicked
     uploadBtn.addEventListener('click', () => {
@@ -15,6 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // A common handler for both clicking and dragging
     function handleFiles(files) {
         if (!files || files.length === 0) return;
+
+        // Strictly enforce top 8 items on new drop
+        visibleCount = 8; 
 
         // Process each file
         Array.from(files).forEach(file => {
@@ -82,6 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Prepend so new images appear at the top
         gallery.insertBefore(itemContainer, gallery.firstChild);
+
+        // Update layout logic immediately after injecting
+        updateGalleryVisibility();
     }
 
 
