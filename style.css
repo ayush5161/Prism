@@ -522,3 +522,83 @@ html {
 .footer-links a:hover {
     color: var(--text-primary);
 }
+
+/* =========================================
+   Responsive Design Media Queries
+   ========================================= */
+
+/* Tablets and smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1.25rem 1rem;
+        gap: 1.25rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .header {
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .header-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .gallery-container {
+        padding: 0 1rem;
+    }
+
+    .drop-zone {
+        padding: 2rem 1rem;
+    }
+
+    .close-lightbox {
+        top: 15px;
+        right: 20px;
+        font-size: 2.5rem;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .header-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .header-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .gallery-grid {
+        /* Allows for a 2-column layout on mobile instead of 1 large column */
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+
+    .btn-primary {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.9rem;
+    }
+
+    .footer-content {
+        padding: 0 1rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+}
